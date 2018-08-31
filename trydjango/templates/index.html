@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for obj in  Qu %}
+<div class="container">
+<div class=" row">
+<div class="col-sm-6">
+<div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body">
+      <h5 class="card-title">{{obj.title}}  |<small>{{obj.published}}</small> </h5>
+      <p class="card-text">{{obj.content}}</p>
+      <a href="{{obj.get_absolute_url}}" class="btn btn-primary">view</a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+<div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if Qu.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ Qu.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ Qu.number }} of {{ Qu.paginator.num_pages }}.
+        </span>
+
+        {% if Qu.has_next %}
+            <a href="?page={{ Qu.next_page_number }}">next</a>
+            <a href="?page={{ Qu.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+{% endblock content %}

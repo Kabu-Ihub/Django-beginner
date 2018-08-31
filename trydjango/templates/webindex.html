@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<title>{% block head_title %}{{instance.title}} | {{block.super}}
+    {% endblock head_title %}
+   </title>
+{% block content %}
+<div class="container">
+<h1>Love</h1>
+  <p>{{instance.title}} is working very well</p>
+  {{instance.title}}<br/>
+  {{instance.content}}<br/>
+  {{instance.updated}}<br/>
+  {{instance.published}}<br/>
+  {{instance.id}}<br/>
+  {{instance.pk}}
+</div>
+{% endblock content %}
